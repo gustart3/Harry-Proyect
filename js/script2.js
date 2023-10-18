@@ -74,7 +74,7 @@ function generarCarta() {
     firmaElement.style.bottom = '20%';
     firmaElement.style.left = '16%';
     firmaElement.style.overflow = 'hidden';
-    firmaElement.style.width = '40%';
+    firmaElement.style.width = '5%';
     firmaElement.style.height = '10%';
     firmaElement.style.fontSize = '20px';
     firmaElement.style.fontFamily = 'Vujahday Script, cursive';
