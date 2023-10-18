@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* Definición de colores en root */
+:root {
+    --color-gryf01: #740001;
+    --color-gryf02: #AE0001;
+    --color-gryf03: #eeba30;
+    --color-gryf04: #d3a625;
+    --color-gryf05: #000;
+
+    --color-slyt01: #e3e3e3;
+    --color-slyt02: #b0b0b0;
+    --color-slyt03: #009403;
+    --color-slyt04: #006302;
+    --color-slyt05: #002f01;
+
+    --color-huff01: #d4c20e;
+    --color-huff02: #e5d85a;
+    --color-huff03: #767676;
+    --color-huff04: #515151;
+    --color-huff05: #000;
+
+    --color-rav01: #0e1a40;
+    --color-rav02: #222f5b;
+    --color-rav03: #5d5d5d;
+    --color-rav04: #946b2d;
+    --color-rav05: #000;
+
+    --color-fondo: #ffffff; /* Color de fondo predeterminado */
+    --color-texto: #000000; /* Color de texto predeterminado */
+}
+
+body{
+    min-height: auto;
+    overflow: scroll;
+}
+
+/* Estilos para casas */
+.Gryffindor {
+    background-color: var(--color-gryf01);
+    color: var(--color-gryf03);
+    transition: all 300ms;
+}
+
+.Slytherin {
+    color: var(--color-slyt01);
+    background-color: var(--color-slyt05);
+    transition: all 300ms;
+}
+
+.Hufflepuff {
+    background-color: var(--color-huff01);
+    color: var(--color-huff05);
+    transition: all 300ms;
+}
+
+.Ravenclaw {
+    background-color: var(--color-rav01);
+    color: var(--color-rav04);
+    transition: all 300ms;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: auto;
+    width: auto; 
+}
+
+.grid-item {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+#elemento1 {
+  grid-column: span 4;
+}
+#elemento3 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+#elemento8 {
+  grid-column: span 3;
+  
+}
+#elemento9 {
+  grid-column: span 4;
+}
+
+#elemento10, #elemento11 {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+#elemento12 {
+  grid-column: span 4;
+}
+
+.casas img{
+    width: 6vw; 
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#carta-container {
+    display: none;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 15px;
+}
+.texto h2{
+    font-size: 36px;
+    padding: 15px;
+}
+
+.texto p{
+    padding: 5px;
+}
+
+/*formulario*/
+
+input {
+    width: 90%;
+    padding: 15px; /* Ajusta el valor según tu preferencia */
+    font-size: 16px; /* Ajusta el valor según tu preferencia */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#elemento11 img{
+    border: solid;
+    padding: 10px;
+    width: 100%;
+    border-radius: 15%;
+}
+
+.personaje-ficha {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    padding: 50px;
+    border: 5px;
+}
+
+/* Estilos adicionales según tu diseño */
+ul li {
+    list-style: none;
+    text-align: left;
+    padding: 3px;
+    transition: all 300ms;
+}
+ul li:hover {
+    scale: 1.2;
+    transition: all 300ms;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+#texto2{
+    display: none;
+}
+
+/*
+#carta-texto {
+    flex: 1; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+*/
+
+.carta-texto-estilo {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    font-family: 'Vujahday Script', cursive;
+    font-size: 1.5rem;
+    color: black;
+    padding-right: 28%;
+}
+
+.carta-firma-estilo {
+    position: absolute;
+    bottom: 20vh;
+    left: 25vh;
+    font-size: 1.5rem;
+    font-family: 'Vujahday Script', cursive;
+    padding-right: 20%;
+}
+
+.carta-membrete-estilo {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    font-family: 'Vujahday Script', cursive;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+    min-width: 30%;
+}
+
+
+.carta-container-estilo {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 90%;
+    grid-column: 2 / span 2;
+}

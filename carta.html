@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Harry Potter</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item1">
+            <div class="casas">
+                <a href="#" onclick="cambiarEstilo('gryffindor')"><img class="escudo" src="imagenes/gryf.png.png" alt="gryffindor"></a>
+                <a href="#" onclick="cambiarEstilo('slytherin')"><img class="escudo" src="imagenes/sly.png.png" alt="slytherin"></a>
+                <a href="#" onclick="cambiarEstilo('hufflepuff')"><img class="escudo" src="imagenes/huff.png.png" alt="hufflepuff"></a>
+                <a href="#" onclick="cambiarEstilo('ravenclaw')"><img class="escudo" src="imagenes/raven.png.png" alt="ravenclaw"></a>
+            </div>
+        </div> 
+    
+        <div class="grid-item2">
+            <div class="titulo">
+                <h1>PROYECTO HARRY POTTER</h1>
+            </div>
+        </div>
+        
+        <div class="grid-item3">
+            <div class="menu">    
+                <a href="#seccion1">Consigue tu Carta</a>
+                <a href="#seccion2">Test de Casa de Hogwarts</a>
+                <a href="#seccion3">3ra sección</a>
+                <a href="">4ta sección</a>  
+            </div>   
+        </div>
+    </div>
+
+    <div id="carta-container">
+        <div id="carta-hogwarts">
+            <img id="carta-imagen" src="imagenes/carta.jpg" alt="Carta de Hogwarts">
+            <div class="membrete" id="membrete"> <!-- Aquí se mostrará el membrete -->
+                <!-- El contenido del membrete se actualizará dinámicamente con JavaScript -->
+            </div>
+            <div id="carta-texto">
+                <!-- Aquí se mostrará el texto dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <button onclick="window.location.href = 'index.html';">Inicio</button>
+        <button onclick="window.location.href = 'formulario.html';">Volver a Llenar el Formulario</button>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

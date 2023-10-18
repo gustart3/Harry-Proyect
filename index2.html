@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilos3.css">
+</head>
+
+
+<body>
+    <div class="grid-container">
+         <div class="grid-item" id="elemento1">encabezado </div>
+
+        <div class="grid-item" id="elemento2">
+            <div class="casas">
+                <a href="#" onclick="cambiarEstilo('Gryffindor')"><img class="escudo" src="imagenes/gryf.png.png" alt="gryffindor"></a>
+            </div>
+        </div>
+
+        <div class="grid-item" id="elemento3">
+            <div class="menu">    
+                <a href="#seccion1">Consigue tu Carta</a>
+                <a href="#seccion2"><div class="container">
+                    <button onclick="traerDatos()">personajes</button></a>
+                </div>
+                <a href="#seccion3">3ra sección</a>
+                <a href="">4ta sección</a>  
+            </div>  
+        </div>
+
+        <div class="grid-item" id="elemento4">
+            <div class="casas">
+                <a href="#" onclick="cambiarEstilo('Hufflepuff')"><img class="escudo" src="imagenes/huff.png.png" alt="hufflepuff"></a>
+            </div>
+        </div>
+        <div class="grid-item" id="elemento5">
+            <div class="casas">
+                <a href="#" onclick="cambiarEstilo('Slytherin')"><img class="escudo" src="imagenes/sly.png.png" alt="slytherin"></a>
+            </div>
+        </div>
+        <div class="grid-item" id="elemento6">
+            <div class="casas">
+                <a href="#" onclick="cambiarEstilo('Ravenclaw')"><img class="escudo" src="imagenes/raven.png.png" alt="ravenclaw"></a>
+            </div>
+        </div>
+                        <div class="grid-item" id="elemento1">nombre de la sección </div>
+
+        <div class="grid-item" id="elemento7">
+            <div id="seccion1">
+                <div class="formulario">
+                    <div class="prompts">
+                        <h2>Carta de Hogwarts</h2>
+                        <form id="carta-form" method="post" action="javascript:void(0);">
+                            <div class="select">
+                                <div class="select-container">
+                                    <div class="custom-select">
+                                        <label for="title">Selecciona tu título:</label>
+                                        <select name="title" id="title">
+                                            <option selected="" value="Sr.">Sr</option>
+                                            <option value="Sra.">Sra</option>
+                                            <option value="Srta.">Señorita</option>
+                                            <option value="Joven">Joven</option>
+                                        </select>
+                                        <i class="font-icon down-dir"></i>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="text-container">
+                                <label for="name">Tu nombre:</label>
+                                <input type="text" name="name" id="name" autocomplete="given-name" maxlength="25" placeholder="nombre">
+                            </div>
+                    
+                            <div class="text-container">
+                                <label for="surname">Apellido:</label>
+                                <input type="text" name="surname" id="surname" autocomplete="family-name" maxlength="25" placeholder="apellido">
+                            </div>
+                    
+                            <div class="text-container">
+                                <label for="address">Dirección Línea 1:</label>
+                                <input type="text" name="address" id="address" autocomplete="address-line1" maxlength="30" placeholder="Dirección">
+                            </div>
+                    
+                            <div class="text-container">
+                                <label for="address2">Dirección Línea 2:</label>
+                                <input type="text" name="address2" id="address2" autocomplete="address-line2" maxlength="30" placeholder="casa/dpto">
+                            </div>
+                    
+                            <div class="send-button-container">
+                                <button class="button js-send-button" type="button" onclick="generarCarta();">
+                                    <span class="text">Proceder</span>
+                                    <span class="loader"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="grid-item" id="elemento8">
+
+            <div class="texto" id="texto1">
+                <h2>Escuela de Hogwarts de Magia y Hechicería</h2>
+                    <p>Hogwarts es una escuela a la cual asisten jóvenes magos para desarrollar sus habilidades mágicas.</p>
+                    <p>El edificio, situado en las colinas de Escocia, es visto como un antiguo edificio en ruinas con un cartel que dice "cuidado, ruinas peligrosas",</p>
+                    <p>por las personas ajenas a poderes mágicos (más comúnmente conocidos como muggles).</p>
+                    <p>Tiene siete plantas, varias torres, escaleras que cambian de posición a su antojo y extensos terrenos</p>
+                    <p>que contienen un lago, un bosque, llamado El Bosque Prohibido, y varios invernaderos con fines botánicos.</p>
+                    <p>Además de sus numerosas aulas en las que se imparten las clases de pociones,</p>
+                    <p> transformaciones, Defensa contra las Artes Oscuras, Historia de la magia y demás asignaturas por asistentes calificados, </p>
+                    <p>el castillo posee lugares con fines diferentes. Ejemplos son el Gran Comedor </p>
+                    <p>donde se celebran enormes banquetes en días especiales y que posee un techo mágico el cual parece ser el cielo y presenta el tiempo atmosférico del momento</p>
+            </div>
+
+            <div id="carta-container">
+                  
+                        <img id="cartaImagen" src="imagenes/carta.jpg" alt="Carta de Hogwarts">
+                            <div id="carta-membrete"> 
+                            </div>
+
+                            <div id="carta-texto">
+                            </div>
+
+                            <div id="carta-firma">
+                            </div>
+                    </div>
+                
+            </div>
+              
+        </div> 
+    
+        <div class="grid-item" id="elemento9">
+            <div class="texto" id="texto2">
+                <h2>Escuela de Hogwarts de Magia y Hechicería</h2>
+                    <p>Hogwarts es una escuela a la cual asisten jóvenes magos para desarrollar sus habilidades mágicas.</p>
+                    <p>El edificio, situado en las colinas de Escocia, es visto como un antiguo edificio en ruinas con un cartel que dice "cuidado, ruinas peligrosas",</p>
+                    <p>por las personas ajenas a poderes mágicos (más comúnmente conocidos como muggles).</p>
+                    <p>Tiene siete plantas, varias torres, escaleras que cambian de posición a su antojo y extensos terrenos</p>
+                    <p>que contienen un lago, un bosque, llamado El Bosque Prohibido, y varios invernaderos con fines botánicos.</p>
+                    <p>Además de sus numerosas aulas en las que se imparten las clases de pociones,</p>
+                    <p> transformaciones, Defensa contra las Artes Oscuras, Historia de la magia y demás asignaturas por asistentes calificados, </p>
+                    <p>el castillo posee lugares con fines diferentes. Ejemplos son el Gran Comedor </p>
+                    <p>donde se celebran enormes banquetes en días especiales y que posee un techo mágico el cual parece ser el cielo y presenta el tiempo atmosférico del momento</p>
+            </div>
+        </div> 
+        <div class="grid-item" id="elemento10"> 
+            <div id="seccion2">
+                    <h2>PERSONAJES PRINCIPALES</h2>
+                    <ul id="characters-list" class="column">
+                    <!-- Aquí se mostrarán los personajes de la API -->
+                    </ul>
+            </div>
+        </div>
+
+        <div class="grid-item" id="elemento11">
+            <div id="contenido" class="contenido column">
+                <div class="personaje-ficha" id="ficha-personaje">
+                    <img src="imagenes/how.png.png" alt="Foto del personaje"class="persoanjes" id="foto-personaje" >
+                    <div class="infoPersonaje">
+                        <h2 id="nombre-personaje"></h2>
+                        <p id="apodo-personaje"></p>
+                        <p id="estudiante-personaje"></p>
+                        <p id="casa-personaje"></p>
+                        <p id="actor"></p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <div class="grid-item" id="elemento12">footer</div>
+    </div>
+    <script src="js/script2.js"></script>
+</body>
+</html>
