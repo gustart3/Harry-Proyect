@@ -158,8 +158,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     listItem.classList.add("personaje-item"); // Agrega una clase CSS para estilizar los elementos de la lista
                     listItem.addEventListener("click", () => mostrarDetallesDelPersonaje(personaje));
                     charactersList.appendChild(listItem);
+
                 });
             }
+
+
+
     //fondo del contenedor
 
 
@@ -188,6 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Cambiar el fondo solo si el elemento existe
             columnaFicha.className = 'column';
             columnaFicha.classList.add(personaje.casaDeHogwarts);
+    
         }
     }
 

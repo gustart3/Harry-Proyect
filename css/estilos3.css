@@ -73,6 +73,7 @@ body{
 }
 
 .grid-item {
+    
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
@@ -91,15 +92,23 @@ body{
 #elemento9 {
   grid-column: span 4;
 }
+
 #elemento10 {
-    grid-column: span 2;
+  grid-column: span 1;
 }
- #elemento11 {
-  grid-column: span 2;
-  
+
+#elemento11{
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
 }
-#elemento12 {
-  grid-column: span 4;
+
+#elemento12{
+    grid-column: span 4;
+}
+
+#elemento13{
+    grid-column: span 4;
 }
 
 .casas img{
@@ -144,7 +153,7 @@ input {
     margin: 5px;
 }
 
-#elemento11 img{
+#elemento14 img{
     border: solid;
     padding: 10px;
     width: 100%;
@@ -157,8 +166,7 @@ input {
     justify-content: center;
     align-items: center; 
     text-align: center;
-    padding: 50px;
-    border: 5px;
+    padding: 30px;
 }
 
 .escudo {
@@ -173,7 +181,7 @@ ul li {
     transition: all 300ms;
 }
 ul li:hover {
-    scale: 1.2;
+    scale: 1.1;
     transition: all 300ms;
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
 }
@@ -190,7 +198,7 @@ ul li:hover {
     height: 55cqmax;
     width: 50%;
     left: 25%;
-    background-image: url(/imagenes/carta.jpg);
+    background-image: url(../imagenes/carta.jpg);
     background-size: cover;
     background-position: center;
     display: block;
@@ -200,10 +208,11 @@ ul li:hover {
 
 .cartaFirmaEstilo {
     position: absolute;
-    bottom: 10%;
+    bottom: 15%;
     left: 20vh;
     font-size: 1.4vw;
     font-family: 'Vujahday Script', cursive;
+    color: black;
 }
 
 .cartaMembreteEstilo {
@@ -212,8 +221,9 @@ ul li:hover {
     left: 15%;
     font-family: 'Vujahday Script', cursive;
     margin-bottom: 50px;
-    font-size: 2vw;
+    font-size: 1.8vw;
     min-width: 30%;
+    color: black;
 }
 
 .cartaTextoEstilo { 
@@ -225,7 +235,7 @@ ul li:hover {
     width: 80%;
     margin: 10px;
     font-family: 'Vujahday Script', cursive;
-    font-size: 1.9vw;
+    font-size: 1.6vw;
     color: black;
     padding-right: 10px;
     padding-left: 10px;
