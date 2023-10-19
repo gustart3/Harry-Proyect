@@ -205,6 +205,7 @@ ul li:hover {
     display: block;
     position: relative;
     grid-column: 2 / span2;
+    cursor: url (../imagenes/pngegg.png),pointer;
 }
 
 .cartaFirmaEstilo {
