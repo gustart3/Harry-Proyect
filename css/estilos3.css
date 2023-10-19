@@ -73,8 +73,6 @@ body{
 }
 
 .grid-item {
-    height: 100%;
-    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
@@ -88,18 +86,17 @@ body{
   grid-row: span 2;
 }
 #elemento8 {
-  grid-column: span 3;
-  
+  grid-column: span 3; 
 }
 #elemento9 {
   grid-column: span 4;
 }
-
-#elemento10, #elemento11 {
+#elemento10 {
+    grid-column: span 2;
+}
+ #elemento11 {
   grid-column: span 2;
-  display: flex;
-  justify-content: center;
-  padding: 15px;
+  
 }
 #elemento12 {
   grid-column: span 4;
@@ -109,6 +106,7 @@ body{
     width: 6vw; 
 }
 
+
 .menu{
     display: flex;
     flex-direction: row;
@@ -116,7 +114,7 @@ body{
     align-items: flex-end;
 }
 
-#carta-container {
+.carta-container {
     display: none;
 }
 
@@ -163,7 +161,11 @@ input {
     border: 5px;
 }
 
-/* Estilos adicionales según tu diseño */
+.escudo {
+    max-width: 300px; 
+    height: auto;
+}
+
 ul li {
     list-style: none;
     text-align: left;
@@ -176,52 +178,56 @@ ul li:hover {
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
 }
 
+
 #texto2{
     display: none;
 }
 
-/*
-#carta-texto {
-    flex: 1; 
-    padding: 10px; 
-    box-sizing: border-box; 
-}
-*/
 
-.carta-texto-estilo {
-    position: absolute;
-    top: 35%;
+/*manejo de la carta*/
+.cartaImagen {
+    display: flex;
+    height: 55cqmax;
+    width: 50%;
     left: 25%;
-    font-family: 'Vujahday Script', cursive;
-    font-size: 1.5rem;
-    color: black;
-    padding-right: 28%;
+    background-image: url(/imagenes/carta.jpg);
+    background-size: cover;
+    background-position: center;
+    display: block;
+    position: relative;
+    grid-column: 2 / span2;
 }
 
-.carta-firma-estilo {
+.cartaFirmaEstilo {
     position: absolute;
-    bottom: 20vh;
-    left: 25vh;
-    font-size: 1.5rem;
+    bottom: 10%;
+    left: 20vh;
+    font-size: 1.4vw;
     font-family: 'Vujahday Script', cursive;
-    padding-right: 20%;
 }
 
-.carta-membrete-estilo {
+.cartaMembreteEstilo {
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 22%;
+    left: 15%;
     font-family: 'Vujahday Script', cursive;
     margin-bottom: 50px;
-    font-size: 1.2rem;
+    font-size: 2vw;
     min-width: 30%;
 }
 
-
-.carta-container-estilo {
-    display: block;
-    position: relative;
-    height: 100%;
-    width: 90%;
-    grid-column: 2 / span 2;
+.cartaTextoEstilo { 
+    display: flex;
+    text-align: left;
+    position:absolute;
+    top: 35%;
+    left: 10%;
+    width: 80%;
+    margin: 10px;
+    font-family: 'Vujahday Script', cursive;
+    font-size: 1.9vw;
+    color: black;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5%;
 }

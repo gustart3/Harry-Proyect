@@ -4,7 +4,6 @@
     padding: 0px;
     box-sizing: border-box;
 }
-
 /* Definición de colores en root */
 :root {
     --color-gryf01: #740001;
@@ -35,239 +34,198 @@
     --color-texto: #000000; /* Color de texto predeterminado */
 }
 
-/* Estilos para el grid y sus elementos */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr; 
-    grid-template-rows: repeat(2, 1fr);
-    grid-auto-rows: auto; 
-    height: 100px; 
-    
-    margin: 0;
-}
-.grid-item3 {
-    grid-column: 2;
-    grid-row: 2;
-    
-}
-
-.casas {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-.grid-item1{
-    max-height: 100px;
-}
-
-.escudo {
-    max-width: 80%; /* Ajusta el ancho al 100% del contenedor */
-    max-height: 80%; /* Ajusta la altura al 100% del contenedor */
-    cursor: pointer;
-    transition: all 300ms;
-}
-
-.escudo:hover {
-    transform: scale(1.3);
-    transition: all 300ms;
-}
-
-.titulo{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.menu{
-    display: flex;
-    justify-content: space-around;
-    align-content: flex-start;   
-}
-
-a{
-    text-decoration: none; 
-}
-
-
-/* Estilos globales de página */
-body {
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: Arial, sans-serif;
-}
-
-
-/* Estilos para secciones */
-#seccion1,
-#seccion2,
-#seccion3 {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    text-align: center;
+body{
+    min-height: auto;
+    overflow: scroll;
 }
 
 /* Estilos para casas */
-.gryffindor {
+.Gryffindor {
     background-color: var(--color-gryf01);
     color: var(--color-gryf03);
     transition: all 300ms;
 }
 
-.slytherin {
-    background-color: var(--color-slyt01);
-    color: var(--color-slyt05);
+.Slytherin {
+    color: var(--color-slyt01);
+    background-color: var(--color-slyt05);
     transition: all 300ms;
 }
 
-.hufflepuff {
+.Hufflepuff {
     background-color: var(--color-huff01);
     color: var(--color-huff05);
     transition: all 300ms;
 }
 
-.ravenclaw {
+.Ravenclaw {
     background-color: var(--color-rav01);
     color: var(--color-rav04);
     transition: all 300ms;
 }
 
-
-#carta-imagen {
-    display:none
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: auto;
+    width: auto; 
 }
 
-/* Estilos para la textura de papel */
-.textura-papel {
-    display: flex;
-    justify-content: center;
-    background-image: url('imagenes/carta.jpg');
-    background-size: cover;
-    background-blend-mode: multiply;
-    width: 100%;
-}
-
-#carta-hogwarts {
-    display: flex;
-    justify-content:center;
-    position: relative;
-    background-size: 100%; 
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-}
-
-#carta-texto {
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
     text-align: center;
-    width: 100%;
-    color: #000;
-    font-family: 'Vujahday Script', cursive;
-    font-size: 24px; 
-    position: absolute;
-    top: 300px;
-    margin: 0;
-    z-index: 2;
-    line-height: 1.5;
 }
 
-.membrete {
-    text-align: left;
-    width: 60%; 
-    margin-top: 70px;
-    margin-bottom: 5px; 
+#elemento1 {
+  grid-column: span 4;
+}
+#elemento3 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+#elemento8 {
+  grid-column: span 3; 
+}
+#elemento9 {
+  grid-column: span 4;
 }
 
-.cuerpo {
-    text-align: justify;
-    width: 100%;
+#elemento10, #elemento11 {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
 }
-p.cuerpo{
-    padding: 10px;
-}
-
-.firma {
-    text-align: left;
-    float: left;
-    width: 40%;
+#elemento12 {
+  grid-column: span 4;
 }
 
-#carta-container {
-    width: 100%;
+.casas img{
+    width: 6vw; 
+}
+
+
+.menu{
     display: flex;
-    justify-content: center;
-    align-content: center;
-    height: 100vh;
- 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
+.carta-container {
+    display: none;
+}
 
-#carta-imagen {
+.texto{
     display: flex;
-    justify-content: center;
-    max-width: 90vw;
-    object-fit: cover; /* Escala la imagen para cubrir todo el contenedor */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Coloca la imagen en la capa superior */
+    flex-direction: column;
+    margin: auto;
+    padding: 15px;
+}
+.texto h2{
+    font-size: 36px;
+    padding: 15px;
 }
 
-/* Aumentar el tamaño de la fuente y el espaciado del formulario */
-#carta-form {
-    font-size: 1.2em; /* Aumentar el tamaño de la fuente */
+.texto p{
+    padding: 5px;
 }
 
-/* Aumentar el tamaño de las cajas de texto y seleccionar cuadros */
-.text-container input,
-.select-container select {
-    font-size: 1.2em; /* Aumentar el tamaño de la fuente en cajas de texto y select */
-    padding: 10px; /* Aumentar el espaciado interior de las cajas de texto y select */
+/*formulario*/
+
+input {
+    width: 90%;
+    padding: 15px; /* Ajusta el valor según tu preferencia */
+    font-size: 16px; /* Ajusta el valor según tu preferencia */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
 }
 
-/* Aumentar el espaciado entre los elementos del formulario */
-#carta-form h4,
-.checkbox-container,
-.send-button-container {
-    margin-bottom: 15px; /* Aumentar el margen inferior entre los elementos */
-}
-
-/* Estilo inicial para las cajas de texto */
-.text-container input {
-    font-size: 1.2em;
+#elemento11 img{
+    border: solid;
     padding: 10px;
-    transition: box-shadow 0.3s; /* Agregar transición para suavizar el efecto */
+    width: 100%;
+    border-radius: 15%;
 }
 
-/* Efecto de brillo al hacer clic en la caja de texto */
-.text-container input:focus {
-    transition: linear 300ms;
+.personaje-ficha {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    padding: 50px;
+    border: 5px;
+}
+
+img.personajes{
+    width:30vh;
+}
+
+ul li {
+    list-style: none;
+    text-align: left;
+    padding: 3px;
+    transition: all 300ms;
+}
+ul li:hover {
+    scale: 1.2;
+    transition: all 300ms;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+#texto2{
+    display: none;
+}
+
+
+/*manejo de la carta*/
+.cartaImagen {
+    display: flex;
+    height: 55cqmax;
+    width: 50%;
+    left: 25%;
+    background-image: url(/imagenes/carta.jpg);
+    background-size: cover;
+    background-position: center;
+    display: block;
     position: relative;
-    background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.5) 98%, transparent);
+    grid-column: 2 / span2;
 }
 
-
-.light {
-    width: 100px;
-    height: 100px;
+.cartaFirmaEstilo {
     position: absolute;
-    background: radial-gradient(rgba(255, 255, 255, 0.5), transparent);
-    border-radius: 30%;
-    animation: moveLight 3s linear infinite;
+    bottom: 10%;
+    left: 20vh;
+    font-size: 1.4vw;
+    font-family: 'Vujahday Script', cursive;
 }
 
-@keyframes moveLight {
-    0% {
-        left: -100px;
-    }
-    100% {
-        left: 100%;
-    }
+.cartaMembreteEstilo {
+    position: absolute;
+    top: 22%;
+    left: 15%;
+    font-family: 'Vujahday Script', cursive;
+    margin-bottom: 50px;
+    font-size: 2vw;
+    min-width: 30%;
 }
 
-  
-
-/*hasta aca gus*/
-  
+.cartaTextoEstilo { 
+    display: flex;
+    text-align: left;
+    position:absolute;
+    top: 35%;
+    left: 10%;
+    width: 80%;
+    margin: 10px;
+    font-family: 'Vujahday Script', cursive;
+    font-size: 1.9vw;
+    color: black;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5%;
+}

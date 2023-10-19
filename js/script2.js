@@ -25,7 +25,7 @@ function generarCarta() {
     }
 
     // Componer el contenido de la carta
-    const cartaMembrete = `Estimado(a) ${title} ${name} ${surname}.<br>` +
+    const cartaMembrete = `Para: ${title} ${name} ${surname}.<br>` +
         `Dirección: ${address}, ${address2}`;
 
     const cartaTexto = `Estimado(a) ${title} ${name} ${surname},\n\n` +
@@ -39,82 +39,30 @@ function generarCarta() {
         `Directora del Colegio Hogwarts de Magia y Hechicería`;
 
     // Mostrar la carta en la misma ventana
+    // Mostrar la carta de Hogwarts (mostrar #carta-imagen)
+   const cartaImagenElement = document.getElementById('cartaImagen');
+   cartaImagenElement.classList.add('cartaImagen');
+
+   const cartaMembreteElement = document.getElementById('carta-membrete');
+   cartaMembreteElement.classList.add('cartaMembreteEstilo');
     
     const cartaTextoElement = document.getElementById('carta-texto');
-    cartaTextoElement.style.position = 'absolute';
-    cartaTextoElement.style.top = '35%';
-    cartaTextoElement.style.left = '25%';
-    cartaTextoElement.style.fontFamily = 'Vujahday Script, cursive';
-    cartaTextoElement.style.fontSize = '1.5rem';
-    cartaTextoElement.style.color = 'black';
-    cartaTextoElement.style.paddingRight = '33%';
-    cartaTextoElement.style.paddingLeft = '5%';
+    cartaTextoElement.classList.add('cartaTextoEstilo');
 
-    const cartaMembreteElement = document.getElementById('carta-membrete');
     const cartaFirmaElement = document.getElementById('carta-firma');
-
-
+    cartaFirmaElement.classList.add('cartaFirmaEstilo');
+   
     cartaTextoElement.innerHTML = cartaTexto;
     cartaMembreteElement.innerHTML = cartaMembrete;
     cartaFirmaElement.innerHTML = cartaFirma;
 
-    // Mostrar la carta de Hogwarts (mostrar #carta-imagen)
-   const cartaImagenElement = document.getElementById('carta-imagen');
-    //cartaImagenElement.style.width = '100%';
-    //cartaImagenElement.style.display = 'block';
-   //cartaImagenElement.style.position = 'absolute';
-    //cartaImagenElement.style.objectFit = 'cover';
-    //cartaImagenElement.style.zIndex = '-1';
+   const ocultarTexto = document.getElementById("texto1");
+   ocultarTexto.style.display = "none";
 
-    
-    
-
-    const firmaElement = document.getElementById('carta-firma')
-       firmaElement.style.position = 'absolute';
-    firmaElement.style.bottom = '20%';
-    firmaElement.style.left = '16%';
-    firmaElement.style.overflow = 'hidden';
-    firmaElement.style.width = '5%';
-    firmaElement.style.height = '10%';
-    firmaElement.style.fontSize = '20px';
-    firmaElement.style.fontFamily = 'Vujahday Script, cursive';
-    firmaElement.style.fontSize = '1.5rem';
-    firmaElement.style.paddingRight = '20%';
-    firmaElement.style.paddingLeft = '5%';
-    
+   const mostrarTexto = document.getElementById("texto2");
+   mostrarTexto.style.display = "flex";
 
 
-    const membreteElement = document.getElementById('carta-membrete')
-    membreteElement.style.position = 'absolute';
-    membreteElement.style.top = '20%';
-    membreteElement.style.left = '33%';
-    membreteElement.style.fontFamily = 'Vujahday Script, cursive';
-    membreteElement.style.marginBottom = '50px';
-    membreteElement.style.fontSize = '1.2rem';
-    membreteElement.style.minWidth = "30%"
-
-    const cartaContainer = document.getElementById("carta-container");
-    cartaContainer.style.display = "block";
-    cartaContainer.style.position = "relative";
-    cartaContainer.style.height = "100%";
-    cartaContainer.style.width = '100%';
-    cartaContainer.style.gridColumn = "2/ span 2";
-  
-
-    const ocultarTexto = document.getElementById("texto1");
-    ocultarTexto.style.display = "none";
-
-    const mostrarTexto = document.getElementById("texto2");
-    mostrarTexto.style.display = "flex";
-    
-/*
-    const hogwartsContainer = document.getElementById("carta-hogwarts");
-    hogwartsContainer.style.display = "block";
-    hogwartsContainer.style.position = "right";
-    hogwartsContainer.style.height = "100vh";
-    hogwartsContainer.style.gridRow ="1";
-    hogwartsContainer.style.gridColumn ="3";
-*/
 
     // Restablecer los valores de los campos del formulario
     document.querySelector('select[name="title"]').value = 'Sr.';
@@ -142,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 })
+
 
 document.addEventListener("DOMContentLoaded", function () {
         const url = "https://harry-potter-api.onrender.com/db";
