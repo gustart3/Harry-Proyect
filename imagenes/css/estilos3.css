@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+  }
+/* Definición de colores en root */
+:root {
+    --color-gryf01: #740001;
+    --color-gryf02: #AE0001;
+    --color-gryf03: #eeba30;
+    --color-gryf04: #d3a625;
+    --color-gryf05: #000;
+
+    --color-slyt01: #e3e3e3;
+    --color-slyt02: #b0b0b0;
+    --color-slyt03: #009403;
+    --color-slyt04: #006302;
+    --color-slyt05: #002f01;
+
+    --color-huff01: #d4c20e;
+    --color-huff02: #e5d85a;
+    --color-huff03: #767676;
+    --color-huff04: #515151;
+    --color-huff05: #000;
+
+    --color-rav01: #0e1a40;
+    --color-rav02: #222f5b;
+    --color-rav03: #5d5d5d;
+    --color-rav04: #946b2d;
+    --color-rav05: #000;
+
+    --color-fondo: #ffffff; /* Color de fondo predeterminado */
+    --color-texto: #000000; /* Color de texto predeterminado */
+}
+
+body{
+    min-height: auto;
+    overflow: scroll;
+}
+
+/* Estilos para casas */
+.Gryffindor {
+    background-color: var(--color-gryf01);
+    color: var(--color-gryf03);
+    transition: all 300ms;
+}
+
+.Slytherin {
+    color: var(--color-slyt01);
+    background-color: var(--color-slyt05);
+    transition: all 300ms;
+}
+
+.Hufflepuff {
+    background-color: var(--color-huff01);
+    color: var(--color-huff05);
+    transition: all 300ms;
+}
+
+.Ravenclaw {
+    background-color: var(--color-rav01);
+    color: var(--color-rav04);
+    transition: all 300ms;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: auto;
+    width: auto; 
+}
+.grid-container #contenido{
+    height: min-content;
+    border-radius: 25px;
+    border: solid;
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.grid-container#seccion2{
+    grid-column: span 2;
+}
+/*maneja los bordes de los contenedores*/
+
+.grid-item {
+    /*border: 1px solid #ccc;*/
+    padding: 10px;
+    text-align: center;
+}
+
+#elemento0{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    position: fixed;
+    width: 100vw;
+    margin-bottom: 100px;
+    top: 0;
+    z-index: 5;
+
+}
+#elemento1 {
+  grid-column: span 4;
+}
+#elemento2, #elemento4{
+    grid-column:span 1;
+    flex-grow: 1;
+}
+
+#elemento3 {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  flex-grow: 2;
+  background-image: url(imagenes/castillo.jpeg);
+  background-size: cover;
+  padding-bottom: 0;
+  border-radius: 25px 25px 0 0;
+}
+#elemento3 a {
+    padding: 10px 10px 5px 10px ;
+    border-radius: 15px 15px 0 0 ;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#elemento7, #elemento8{
+    margin-top: 10vw;
+}
+
+#elemento8 {
+  grid-column: span 3; 
+  width: auto;
+}
+#elemento9 {
+  grid-column: span 4;
+}
+
+#elemento10 {
+  grid-column: span 1;
+  display: grid;
+}
+#elemento10, #elemento11{
+    margin-top: 5vw;
+}
+
+#elemento10 .personaje-item{
+    grid-column: span 2;
+    
+}
+#elemento10 .personaje-item li{
+    
+    margin-bottom: 10px;
+}
+
+#elemento11{
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#elemento12{
+    grid-column: span 4;
+}
+
+#elemento13{
+    grid-column: span 4;
+}
+
+.casas img{
+    width: 6vw; 
+}
+.casas{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.carta-container {
+    display: none;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 15px;
+}
+.texto h2{
+    font-size: 36px;
+    padding: 15px;
+}
+
+.texto p{
+    padding: 5px;
+}
+
+/*formulario*/
+
+input {
+    width: 90%;
+    padding: 15px; /* Ajusta el valor según tu preferencia */
+    font-size: 16px; /* Ajusta el valor según tu preferencia */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#elemento11 img{
+    border: solid;
+    padding: 10px;
+    width: 100%;
+    border-radius: 15%;
+}
+
+.personaje-ficha {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    margin: 5%;
+    padding: 30px;
+}
+#contenido{
+    margin: 10px;
+    height: 50%;
+}
+
+.escudito {
+    max-width: 300px; 
+    height: auto;
+    animation: rotar 8s linear infinite;
+    transition: all 300ms;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+ul li {
+    list-style: none;
+    text-align: left;
+    padding: 3px;
+    transition: all 300ms;
+}
+ul li:hover {
+    scale: 1.1;
+    transition: all 300ms;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+
+#texto2{
+    display: none;
+}
+
+
+/*manejo de la carta*/
+.cartaImagen {
+    display: flex;
+    height: 75vw;
+    background-image: url(../imagenes/carta.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    position: relative;
+    grid-column: 2 / span2;
+    cursor: url(../imagenes/pluma.gif), pointer;
+    transition: all 200ms;
+    
+}
+
+.cartaFirmaEstilo {
+    position: absolute;
+    bottom: 22%;
+    left: 20%;
+    font-size: 1.4vw;
+    font-family: 'Vujahday Script', cursive;
+    color: black;
+}
+
+.cartaMembreteEstilo {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    text-align: left;
+    font-family: 'Vujahday Script', cursive;
+    margin-bottom: 50px;
+    font-size: 1.8vw;
+    min-width: 30%;
+    color: black;
+}
+
+.cartaTextoEstilo { 
+    display: flex;
+    text-align: left;
+    position:absolute;
+    top: 35%;
+    left: 20%;
+    width: 60%;
+    margin: 10px;
+    font-family: 'Vujahday Script', cursive;
+    font-size: 1.9vw;
+    color: black;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5%;
+}
