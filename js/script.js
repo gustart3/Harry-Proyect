@@ -10,10 +10,6 @@ function cambiarEstilo(casa) {
 }
 
 
-
-
-
-
 function generarCarta() {
     // Obtén los valores del formulario
     const title = document.querySelector('select[name="title"]').value;
@@ -121,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 })
-
+*/
 document.addEventListener("DOMContentLoaded", function () {
         const url = "https://harry-potter-api.onrender.com/db";
             fetch(url)
@@ -221,5 +217,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
-  
+//menu hamb
+    document.addEventListener("DOMContentLoaded", function () {
+        // Agregar un manejador de eventos al botón hamburguesa
+        const menuButton = document.getElementById("menu-button");
+        const charactersList = document.getElementById("elemento10");
+    
+        menuButton.addEventListener("click", () => {
+            // Alternar la visibilidad de la lista de personajes
+            if (charactersList.style.display === "block") {
+                charactersList.style.display = "none";
+            } else {
+                charactersList.style.display = "block";
+            }
+        });
+    });
+    

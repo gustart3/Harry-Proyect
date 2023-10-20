@@ -4,9 +4,7 @@
     padding: 0px;
     box-sizing: border-box;
 }
-html {
-    scroll-behavior: smooth;
-  }
+
 /* Definición de colores en root */
 :root {
     --color-gryf01: #740001;
@@ -74,6 +72,7 @@ body{
     height: auto;
     width: auto; 
 }
+
 .grid-container #contenido{
     height: min-content;
     border-radius: 25px;
@@ -118,7 +117,7 @@ body{
   flex-direction: column-reverse;
   justify-content: space-between;
   flex-grow: 2;
-  background-image: url(/imagenes/castillo.jpeg);
+  background-image: url(../imagenes/castillo.jpeg);
   background-size: cover;
   padding-bottom: 0;
   border-radius: 25px 25px 0 0;
@@ -325,4 +324,48 @@ ul li:hover {
     padding-right: 10px;
     padding-left: 10px;
     padding-bottom: 5%;
+}
+
+
+@media screen and (max-width: 500px) {
+    .grid-container {
+        display:flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .grid-item{
+        display: flex;
+        justify-content: center;
+    }
+
+    #elemento7{
+        margin-top: 100px;
+    }
+
+    #elemento10 {
+        display: none; /* Ocultar la lista de personajes */
+    }
+
+    /* Estilos para el botón hamburguesa */
+    #menu-button {
+        display: block;
+    }
+  
+
+    input {
+        justify-content: center;
+        width: 80%;
+        padding: 7px; /* Ajusta el valor según tu preferencia */
+        font-size: 1.6vw; /* Ajusta el valor según tu preferencia */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 0;
+
+    }
+
+
+
+
+
 }
