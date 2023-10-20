@@ -4,6 +4,9 @@
     padding: 0px;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+  }
 /* Definición de colores en root */
 :root {
     --color-gryf01: #740001;
@@ -71,21 +74,64 @@ body{
     height: auto;
     width: auto; 
 }
+.grid-container #contenido{
+    height: min-content;
+    border-radius: 25px;
+    border: solid;
+    grid-column: span 2;
+    grid-row: span 1;
+}
+.grid-container#seccion2{
+    grid-column: span 2;
+}
+/*maneja los bordes de los contenedores*/
 
 .grid-item {
-    
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     padding: 10px;
     text-align: center;
 }
 
+#elemento0{
+    grid-column: span 4;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    position: fixed;
+    width: 100vw;
+    margin-bottom: 100px;
+    top: 0;
+    z-index: 5;
+
+}
 #elemento1 {
   grid-column: span 4;
 }
+#elemento2, #elemento4{
+    grid-column:span 1;
+    flex-grow: 1;
+}
+
 #elemento3 {
   grid-column: span 2;
-  grid-row: span 2;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  flex-grow: 2;
+  background-image: url(/imagenes/castillo.jpeg);
+  background-size: cover;
+  padding-bottom: 0;
+  border-radius: 25px 25px 0 0;
 }
+#elemento3 a {
+    padding: 10px 10px 5px 10px ;
+    border-radius: 15px 15px 0 0 ;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#elemento7, #elemento8{
+    margin-top: 10vw;
+}
+
 #elemento8 {
   grid-column: span 3; 
   width: auto;
@@ -96,12 +142,26 @@ body{
 
 #elemento10 {
   grid-column: span 1;
+  display: grid;
+}
+#elemento10, #elemento11{
+    margin-top: 5vw;
+}
+
+#elemento10 .personaje-item{
+    grid-column: span 2;
+    
+}
+#elemento10 .personaje-item li{
+    
+    margin-bottom: 10px;
 }
 
 #elemento11{
     grid-column: span 3;
     display: flex;
     justify-content: center;
+    
 }
 
 #elemento12{
@@ -114,6 +174,10 @@ body{
 
 .casas img{
     width: 6vw; 
+}
+.casas{
+    display: flex;
+    justify-content: space-around;
 }
 
 
@@ -168,12 +232,28 @@ input {
     justify-content: center;
     align-items: center; 
     text-align: center;
+    margin: 5%;
     padding: 30px;
 }
+#contenido{
+    margin: 10px;
+    height: 50%;
+}
 
-.escudo {
+.escudito {
     max-width: 300px; 
     height: auto;
+    animation: rotar 8s linear infinite;
+    transition: all 300ms;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
 ul li {
@@ -205,8 +285,9 @@ ul li:hover {
     display: block;
     position: relative;
     grid-column: 2 / span2;
-    cursor: url (../imagenes/pluma.gif),pointer;
+    cursor: url(../imagenes/pluma.gif), pointer;
     transition: all 200ms;
+    
 }
 
 .cartaFirmaEstilo {

@@ -199,3 +199,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Agregar un manejador de eventos para los elementos de menú
+        const links = document.querySelectorAll(".menu a"); // Modifica el selector para que coincida con tus elementos de menú
+        const headerHeight = document.getElementById("elemento0").offsetHeight; // Altura del header
+    
+        links.forEach(link => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute("href").substring(1); // Obtener el ID de la sección
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const targetOffset = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+                    window.scrollTo({
+                        top: targetOffset,
+                        behavior: "smooth" // Desplazamiento suave
+                    });
+                }
+            });
+        });
+    });
+    
