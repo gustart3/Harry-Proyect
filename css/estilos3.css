@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    
 }
 
 /* Definición de colores en root */
@@ -37,7 +38,7 @@
 
 body{
     min-height: auto;
-    overflow: scroll;
+   
 }
 
 /* Estilos para casas */
@@ -86,8 +87,7 @@ body{
 /*maneja los bordes de los contenedores*/
 
 .grid-item {
-    border: 1px solid #ccc;/*borde de los contenedores*/
-    padding: 10px;
+    border: 10px;
     text-align: center;
 }
 
@@ -107,8 +107,15 @@ body{
   grid-column: span 4;
 }
 #elemento2, #elemento4{
+    width: 25%;
     grid-column:span 1;
     flex-grow: 1;
+    padding-bottom: 5px;
+}
+
+#elemento2.grid-item, #elemento4.grid-item, #elemento2.grid-item{
+    height: 100px;
+    padding-bottom: 0;
 }
 
 #elemento3 {
@@ -169,10 +176,13 @@ body{
 
 #elemento13{
     grid-column: span 4;
+    display: flex;
+    flex-direction: column;
 }
 
 .casas img{
-    max-width: 3vw; 
+    width: 80px; 
+    padding: 10px;
 }
 
 .casas{
@@ -181,8 +191,12 @@ body{
 }
 
 .menuicon{
-    width: 35px;
-}
+    display: flex;
+    justify-content: space-around;
+    width: 40px;
+    align-items: stretch;
+    }
+
 .menu{
     display: flex;
     flex-direction: row;
@@ -330,58 +344,6 @@ ul li:hover {
 }
 
 
-@media screen and (max-width: 500px) {
-    .grid-container {
-        display:flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .grid-item{
-        display: flex;
-        justify-content: center;
-    }
-
-    #elemento7{
-        margin-top: 100px;
-    }
-    #elemento7 h2, .text-container{
-        padding: 10px;
-    }
-
-    #elemento10 {
-        display: none; /* Ocultar la lista de personajes */
-    }
-
-    /* Estilos para el botón hamburguesa */
-    #menu-button {
-        display: block;
-    }
-  
-    input {
-        justify-content: center;
-        width: 100%;
-        padding: 7px; /* Ajusta el valor según tu preferencia */
-        font-size: 1.6vw; /* Ajusta el valor según tu preferencia */
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin: 0;
-    }
-    #elemento7 input{
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    .cartaImagen{
-        min-width: 75vw;
-    }
-
-    #elemento12{
-        min-width: 100%;
-    }
-
-
-}
 
 
 
@@ -408,7 +370,7 @@ ul li:hover {
 }
 
 .founder-container h2{
-    font-size: 2.4vw;
+    font-size: 1.6 rem;
     display: flex;
     flex: 2;
     margin-top: 10px;
@@ -453,72 +415,67 @@ ul li:hover {
     padding: 20px;
 }
 
+.images{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 100%;
+    min-height:80vh;
+    /*padding: 10px;*/
 
-
-
-.images {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  overflow: hidden;
-  min-width: 100%;
-  min-height: 75vh;
-  width: calc(100% - 10);
-  width: 1100px;
 }
 
 .images .image {
-  position: relative;
-  overflow: hidden;
-  min-width: 35px;
-  margin: 10px;
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: 0.2s cubic-bezier(0.1, 0.2, 0.3, 0.2);
+    position:relative;
+    overflow: hidden;
+    min-height: 35px;
+    margin: 10px;
+    background-size:  100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: 0.2s cubic-bezier(0.1, 0.2, 0.3, 0.2);
 }
-
-
 
 .images .image.active {
-  flex-grow: 100000;
-  scale: (1.3);
-  max-width: 50dvh;
-  margin: 0;
-  border-radius: 25px;
-  background-size: auto 110%;
-  background-repeat: no-repeat;
-  box-shadow: px 0px 5px 0px #5f5f5f;
-  
-}
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    position: absolute;
+    left: 35vw;
+    z-index: 5;
+    min-width: 300px;
+    min-height: 80vh;
+    margin: 0 0 0 0;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px 0px #5f5f5f;
+    
+  }
 
-.images .first.active {
-  flex-grow: 1000000;
-  scale: (1.3);
-  max-width: 50dvh;
-  margin: 0;
-  border-radius: 25px;
-  background-size: auto 100%;
-  box-shadow: px 0px 5px 0px #5f5f5f;
-  
-}
-.sub{
+ 
+  .sub{
     overflow: hidden;
 }
+
+
 .images .image.active .label {
-  background-color: rgba(22, 15, 22, 0.3);
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 50px;
-  bottom: 20px;
-  left: 15px;
-  right: 15px;
-  height: 50px;
-  transition: all 0.4s;
-  padding-bottom: 10px;
-}
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(12, 0, 12, 0.7);
+    color: #ffffff;
+    padding: 10px 10px 0 10px;
+    border-radius: 50px;
+    bottom: 30px;
+    left: 15px;
+    right: 15px;
+    height: 50px;
+    transition: all 0.4s;
+    
+  }
+
 .images .image.active .label:hover {
  height: 100px;
  transition: all 0.4s ;
@@ -528,6 +485,7 @@ ul li:hover {
   flex-grow: 1;
   border-radius: 25px;
 }
+
 .images .image:not(.active):hover {
   transform: translateY(-10px);
   transition: all 300ms;
@@ -547,17 +505,6 @@ ul li:hover {
 
 
 
-.images .image .label .icon {
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--light);
-  min-width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: var(--dark);
-}
 
 .images .image .label .info {
   display: flex;
@@ -569,5 +516,78 @@ ul li:hover {
 .images .image .label .info .main {
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+
+
+@media screen and (max-width: 500px){
+   
+    .grid-container{
+        display:flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+    
+}
+    .grid-item{
+        display: flex;
+        justify-content: center;
+    }
+
+    #elemento7{
+        margin-top: 100px;
+    }
+
+    #elemento7 h2, .text-container{
+        padding: 10px;
+    }
+
+    /* Ocultar la lista de personajes */
+    #elemento10 {
+        display: none; 
+    }
+
+    /* Estilos para el botón hamburguesa */
+    #menu-button {
+        display: block;
+    }
+  
+    input {
+        justify-content: center;
+        width: 100%;
+        padding: 7px;
+        font-size: 1.6vw; 
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 0;
+    }
+
+    #elemento7 input{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .cartaImagen{
+        min-width: 75vw;
+    }
+
+    #elemento12{
+        min-width: 100%;
+    }
+    #elemento13{
+        min-width: 100%;   
+    }
+
+    .images .image.active {
+        flex-grow: 100000;
+        scale: (1.3);
+        max-width: 80vw;
+        margin: 0;
+        border-radius: 25px;
+        background-size: auto 90%;
+        background-repeat: no-repeat;
+        box-shadow: px 0px 5px 0px #5f5f5f;
+    }
 }
 

@@ -252,25 +252,6 @@ for (let [i, imageSelected] of image.entries()) {
     imageSelected.classList.toggle('active');
   });
 }
-
 function resetFocus() {
   image.forEach(i => i.classList.remove('active'));
 }
-
-
-
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('.header2');
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector("header");
-
-  // Verificar si el elemento existe antes de acceder a sus propiedades
-  if (header) {
-    header.classList.add("header2");
-  }
-});
-
- 
