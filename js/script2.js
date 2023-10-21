@@ -223,23 +223,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Agregar un manejador de eventos al botón hamburguesa
-        const menuButton = document.getElementById("menu-button");
-        const charactersList = document.getElementById("elemento10");
-    
-        menuButton.addEventListener("click", () => {
-            // Alternar la visibilidad de la lista de personajes
-            if (charactersList.style.display === "block") {
-                charactersList.style.display = "none";
-            } else {
-                charactersList.style.display = "block";
-            }
-        });
-    });
-
-
-
 //galeria de imagenes
 // Seleccionamos todos los elementos que contengan la clase .image
 const image = document.querySelectorAll('.image');
