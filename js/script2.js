@@ -237,3 +237,40 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
+
+//galeria de imagenes
+// Seleccionamos todos los elementos que contengan la clase .image
+const image = document.querySelectorAll('.image');
+
+// creamos un ciclo for of para cada una de nuestras imágenes del array
+for (let [i, imageSelected] of image.entries()) {
+  // Luego le decimos al image seleccionado que ejecute la función focus que a su vez ejecutará el resetFocus el cual eliminará la clase active de cualquiera de las imágenes del array, luego al image seleccionado le agregará la clase active
+  imageSelected.addEventListener('click', function focus(){
+    resetFocus();
+    imageSelected.classList.toggle('active');
+  });
+}
+
+function resetFocus() {
+  image.forEach(i => i.classList.remove('active'));
+}
+
+
+
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.header2');
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector("header");
+
+  // Verificar si el elemento existe antes de acceder a sus propiedades
+  if (header) {
+    header.classList.add("header2");
+  }
+});
+
+ 
