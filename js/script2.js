@@ -1,10 +1,6 @@
 function cambiarEstilo(casa) {
-    // Obtén el elemento body
     const body = document.body;
-    // Quita todas las clases de casa existentes
     body.classList.remove('Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw');
-
-    // Agrega la clase correspondiente a la casa seleccionada
     body.classList.add(casa);
     
 }
@@ -12,7 +8,6 @@ function cambiarEstilo(casa) {
 
 
 function generarCarta() {
-    // Obtén los valores del formulario
     const title = document.querySelector('select[name="title"]').value;
     const name = document.querySelector('input[name="name"]').value;
     const surname = document.querySelector('input[name="surname"]').value;
@@ -21,10 +16,11 @@ function generarCarta() {
 
     if (!title || !name || !surname || !address || !address2) {
         alert("Por favor, completa todos los campos del formulario.");
-        return; // No envíes el formulario si no están llenos todos los campos
+        return; 
     }
 
-    // Componer el contenido de la carta
+    // Contenido de la carta
+
     const cartaMembrete = `Para: ${title} ${name} ${surname}.<br>` +
         `Dirección: ${address}, ${address2}`;
 
@@ -38,7 +34,7 @@ function generarCarta() {
         `Minerva McGonagall<br>` +
         `Directora del Colegio Hogwarts de Magia y Hechicería`;
 
-    // Mostrar la carta en la misma ventana
+
     // Mostrar la carta de Hogwarts (mostrar #carta-imagen)
    const cartaImagenElement = document.getElementById('cartaImagen');
    cartaImagenElement.classList.add('cartaImagen');
@@ -62,8 +58,6 @@ function generarCarta() {
    const mostrarTexto = document.getElementById("texto2");
    mostrarTexto.style.display = "flex";
 
-
-
     // Restablecer los valores de los campos del formulario
     document.querySelector('select[name="title"]').value = 'Sr.';
     document.querySelector('input[name="name"]').value = '';
@@ -72,11 +66,8 @@ function generarCarta() {
     document.querySelector('input[name="address2"]').value = '';
 }
 
-//funcion enter
+//enviar con enter
 document.addEventListener("DOMContentLoaded", function () {
-    // Tu código existente para cargar la página
-
-    // Agrega un manejador de eventos "keydown" a los campos de entrada
     const form = document.getElementById("carta-form");
     const inputFields = form.querySelectorAll("input");
 
@@ -112,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const searchInput = document.getElementById("search-input");
             const searchButton = document.getElementById("search-button");
             const fichaPersonaje = document.getElementById("ficha-personaje");
+            
 
     // Define una variable para almacenar la lista de personajes
         let personajes = [];
@@ -129,6 +121,54 @@ document.addEventListener("DOMContentLoaded", function () {
                         console.error("Error al obtener datos de la API:", error);
                     });
             }
+
+
+            const bookList = document.getElementById("libro1");
+
+    function crearElementosLibro(libro) {
+        const tituloPrincipal = document.getElementById("tituloPrincipal1");
+        const fecha = document.getElementById("fecha1");
+        const descripcion = document.getElementById("descripcion1");
+        const tituloOriginal = document.getElementById("tituloOriginal1");
+
+        tituloPrincipal.textContent = libro.libro;
+        fecha.textContent = `<strong>Fecha de Lanzamiento:</strong> ${libro.fecha_de_lanzamiento}`;
+        descripcion.textContent = `<strong>Descripción:</strong> ${libro.descripcion}`;
+        tituloOriginal.textContent = `<strong>Título Original:</strong> ${libro.titulo_original}`;
+    }
+
+    function obtenerDatosLibros() {
+        const url = "https://harry-potter-api.onrender.com/db";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const libros = data.libros;
+                if (libros.length >= 0) {
+                    libros.forEach((libro, index) => {
+                        // Llama a la función para crear elementos de libro con el libro actual
+                        crearElementosLibro(libro, index + 1);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error al obtener datos de los libros:", error);
+            });
+    }
+    function crearElementosLibro(libro, index) {
+        const tituloPrincipal = document.getElementById(`tituloPrincipal${index}`);
+        const fecha = document.getElementById(`fecha${index}`);
+        const descripcion = document.getElementById(`descripcion${index}`);
+        const tituloOriginal = document.getElementById(`tituloOriginal${index}`);
+    
+        tituloPrincipal.textContent = libro.libro;
+        fecha.textContent = `Fecha de Lanzamiento: ${libro.fecha_de_lanzamiento}`;
+        descripcion.textContent = `Descripción: ${libro.descripcion}`;
+        tituloOriginal.textContent = `Título Original: ${libro.titulo_original}`;
+    }
+    // Llama a la función para obtener y mostrar los datos de los libros
+    obtenerDatosLibros();
+
+
 })
     //lista
     const charactersList = document.getElementById("characters-list");
@@ -238,3 +278,4 @@ for (let [i, imageSelected] of image.entries()) {
 function resetFocus() {
   image.forEach(i => i.classList.remove('active'));
 }
+

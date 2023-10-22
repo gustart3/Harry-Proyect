@@ -484,8 +484,11 @@ ul li:hover {
   }
 
 .images .image.active .label:hover {
- height: 100px;
+ height: fit-content;
  transition: all 0.4s ;
+}
+.info p{
+    padding: 5px;
 }
 
 .images .image:not(.active) {
