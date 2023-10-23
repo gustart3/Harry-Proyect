@@ -451,15 +451,15 @@ ul li:hover {
     align-items: stretch;
     overflow: hidden;
     position: absolute;
-    left: 35vw;
+    left: 25vw;
     z-index: 5;
-    min-width: 300px;
-    min-height: 100%;
+    min-width: 50vw;
+    height:95vh;
     margin: 0 0 0 0;
     border-radius: 25px;
     box-shadow: 0px 5px 5px 0px #5f5f5f;
     
-  }
+  
 
  
   .sub{
