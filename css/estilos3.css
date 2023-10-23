@@ -438,7 +438,7 @@ ul li:hover {
     overflow: hidden;
     min-height: 35px;
     margin: 10px;
-    background-size:  100% auto;
+    background-size:  cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -472,6 +472,7 @@ ul li:hover {
     position: absolute;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
     background-color: rgba(12, 0, 12, 0.7);
     color: #ffffff;
     padding: 10px 10px 0 10px;
@@ -577,13 +578,14 @@ ul li:hover {
         min-width: 100%;   
     }
 
-    .images .image.active {
+   .images .image.active {
         flex-grow: 100000;
         scale: (1.3);
-        max-width: 80vw;
+        max-width: 75vw ;
+        max-height: 60vh;
         margin: 0;
         border-radius: 25px;
-        background-size: auto 90%;
+        background-size: cover;
         background-repeat: no-repeat;
         box-shadow: px 0px 5px 0px #5f5f5f;
         margin-left: auto;
@@ -591,6 +593,7 @@ ul li:hover {
         left: 0;
         right: 0;
     }
+
 
     #elemento2.grid-item, #elemento4.grid-item{
         width: 25vw;
