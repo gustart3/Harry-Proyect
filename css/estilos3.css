@@ -280,8 +280,8 @@ input {
 
 ul {
     margin-top: 20px;
-    column-count: 3; /* Divide la lista en dos columnas */
-    column-gap: 20px; /* Establece un espacio entre las columnas */
+    column-count: 3; 
+    column-gap: 20px; 
 }
 
 ul li {
@@ -430,7 +430,7 @@ ul li:hover {
     flex-direction: column;
     overflow: hidden;
     min-width: 100%;
-    min-height:80vh;
+    min-height:85vh;                
 }
 
 .images .image {
@@ -454,11 +454,11 @@ ul li:hover {
     left: 25vw;
     z-index: 5;
     min-width: 50vw;
-    height:95vh;
+    height:85vh;
     margin: 0 0 0 0;
     border-radius: 25px;
     box-shadow: 0px 5px 5px 0px #5f5f5f;
-    
+}  
   
 
  
@@ -526,7 +526,7 @@ ul li:hover {
 
 
 
-
+/*responsive*/
 
 @media screen and (max-width: 700px){
    
