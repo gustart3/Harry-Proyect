@@ -1,9 +1,16 @@
 import mysql.connector
 import math
 
+from flask import Flask, render_template, request
+
+
+app = Flask(__name__)
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+
+# Código de tu base de datos y lógica de manejo de datos
 
 print("\033[H\033[J")  # Limpiar la consola
-
 
 class Casas:
     def __init__(self, host, user, password, database):
@@ -16,25 +23,23 @@ class Casas:
         
         self.cursor = self.conn.cursor(dictionary=True)
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS Casas(
-        codigo INT PRIMARY KEY,
-        casa VARCHAR(255) NOT NULL,
-        atributo_1 VARCHAR(255) NOT NULL,               
-        atributo_2 VARCHAR(255) NOT NULL, 
-        atributo_3 VARCHAR(255) NOT NULL, 
-        atributo_4 VARCHAR(255) NOT NULL, 
-        atributo_5 VARCHAR(255) NOT NULL, 
-        atributo_6 VARCHAR(255) NOT NULL,
-        atributo_7 VARCHAR(255) NOT NULL, 
-        atributo_8 VARCHAR(255) NOT NULL,
-        atributo_9 VARCHAR(255) NOT NULL                                                   
-        )
+            codigo INT PRIMARY KEY,
+            casa VARCHAR(255) NOT NULL,
+            atributo_1 VARCHAR(255) NOT NULL,               
+            atributo_2 VARCHAR(255) NOT NULL, 
+            atributo_3 VARCHAR(255) NOT NULL, 
+            atributo_4 VARCHAR(255) NOT NULL, 
+            atributo_5 VARCHAR(255) NOT NULL, 
+            atributo_6 VARCHAR(255) NOT NULL,
+            atributo_7 VARCHAR(255) NOT NULL, 
+            atributo_8 VARCHAR(255) NOT NULL,
+            atributo_9 VARCHAR(255) NOT NULL                                                   
+            )
         ''')
         self.conn.commit()
 
-#---------------------------------------------
-#AGREGAR LAS CASAS
-
-    def crear_casa (self, codigo, casa, atributo_1, atributo_2, atributo_3,atributo_4,atributo_5,atributo_6,atributo_7, atributo_8, atributo_9):
+    # AGREGAR LAS CASAS
+    def crear_casa(self, codigo, casa, atributo_1, atributo_2, atributo_3, atributo_4, atributo_5, atributo_6, atributo_7, atributo_8, atributo_9):
         try:
             self.cursor.execute(f"SELECT * FROM Casas WHERE codigo = {codigo}")
             casa_exist = self.cursor.fetchone()
@@ -53,16 +58,15 @@ class Casas:
             print(f"Error code: {err.errno}")
             print(f"SQL State: {err.sqlstate}")
             print(f"Mensaje: {err.msg}")
-        return False
-#-----------------------------------------------
+            return False
 
-# Listar casas
+    # Listar casas
     def listar_casas(self):
         try:
             self.cursor.execute("SELECT * FROM Casas")
-            Casas = self.cursor.fetchall()
+            casas = self.cursor.fetchall()
             print("-" * 30)
-            for casa in Casas:  # Cambio aquí: Iterar sobre la lista 'casas'
+            for casa in casas:
                 print(f"Codigo.......: {casa['codigo']}")
                 print(f"Casa.........: {casa['casa']}")
                 print(f"Atributo 1...: {casa['atributo_1']}")
@@ -78,7 +82,6 @@ class Casas:
         except mysql.connector.Error as err:
             print(f"Error al listar casas: {err}")
 
-    # -------------------------------------------------------------------
     # Consultar casa
     def consultar_casa(self, codigo):
         try:
@@ -89,44 +92,7 @@ class Casas:
         except mysql.connector.Error as err:
             print(f"Error al consultar casa: {err}")
 
-    # -------------------------------------------------------------------    
-
-# Instancia de la clase Casas
-hogwarts = Casas(host='localhost', user='root', password='', database='mi base de datos HP')
-
-hogwarts.crear_casa(1, 'Gryffindor', 'Valentia', 'Audacia', 'Lealtad', 'Cortecia', 'Amabilidad', 'Dignidad', 'Valía', 'Valentía', 'Heroismo')
-hogwarts.crear_casa(2, 'Slytherin', 'Ambicion', 'Astucia', 'Envidia', 'Perversión', 'Perspicacia', 'Ingenio', 'Astucia', 'Persuasión', 'Sagacidad')
-hogwarts.crear_casa(3, 'Hufflepuff', 'Honor', 'Dedicación', 'Amistad', 'Justicia', 'Trabajo', 'Honestidad', 'Empatía', 'Paciencia', 'Benevolencia')
-hogwarts.crear_casa(4, 'Ravenclaw', 'Inteligencia', 'Curiosidad', 'Creatividad', 'Sabiduria', 'Imaginación', 'Análisis', 'Sabiduría', 'Lógica', 'Erudición')
-
-
-# Listar las casas y sus atributos
-hogwarts.listar_casas()
-
-
-# Clase estudiante
-
 class Estudiantes:
-    def existe_estudiante(self, nombre, apellido):
-        try:
-            self.cursor.execute(f"SELECT * FROM Estudiantes WHERE nombre = '{nombre}' AND apellido = '{apellido}'")
-            estudiante = self.cursor.fetchone()
-            return estudiante is not None
-        except mysql.connector.Error as err:
-            print("Error al verificar si existe el estudiante:")
-            print(f"Error code: {err.errno}")
-            print(f"SQL State: {err.sqlstate}")
-            print(f"Mensaje: {err.msg}")
-            return False
-
-    def __init__(self, host, user, password, database):
-        self.conn = mysql.connector.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=database
-        )
-
     def __init__(self, host, user, password, database):
         self.conn = mysql.connector.connect(
             host=host,
@@ -151,9 +117,9 @@ class Estudiantes:
             atributo_7 VARCHAR(255) NOT NULL, 
             atributo_8 VARCHAR(255) NOT NULL,
             atributo_9 VARCHAR(255) NOT NULL,
-            casa_asignada INT,  # Columna de clave foránea
+            casa_asignada INT,  
             curso_asignado INT NOT NULL,
-            FOREIGN KEY (casa_asignada) REFERENCES Casas(codigo)  # Clave foránea a la tabla de casas
+            FOREIGN KEY (casa_asignada) REFERENCES Casas(codigo) 
             )''')
         self.conn.commit()
 
@@ -163,26 +129,23 @@ class Estudiantes:
             estudiantes = self.cursor.fetchall()
             print("-" * 30)
             for estudiante in estudiantes:
-                casa_codigo = estudiante['casa_asignada']  # Obtener el código de la casa asignada
-
-                # Consultar la tabla 'Casas' para obtener el nombre de la casa
+                casa_codigo = estudiante['casa_asignada']
                 self.cursor.execute(f"SELECT casa FROM Casas WHERE codigo = {casa_codigo}")
                 casa_nombre = self.cursor.fetchone()
-
-                # Imprimir los detalles del estudiante con el nombre de la casa en lugar del código
                 print(f"Codigo Identificacion: {estudiante['codigo_identificacion']}")
                 print(f"Nombre: {estudiante['nombre']}")
                 print(f"Apellido: {estudiante['apellido']}")
-                # ... (otros detalles del estudiante)
-                print(f"Casa Asignada: {casa_nombre['casa']}")  # Imprimir el nombre de la casa
+                print(f"Casa Asignada: {casa_nombre['casa']}")
                 print("-" * 30)
         except mysql.connector.Error as err:
-            print(f"Error al listar estudiantes: {err}")    
-
+            print(f"Error al listar estudiantes: {err}")
 
     def crear_estudiante(self, nombre, apellido, edad, sexo, atributo_1, atributo_2, atributo_3, atributo_4, atributo_5, atributo_6, atributo_7, atributo_8, atributo_9):
         try:
-            if self.existe_estudiante(nombre, apellido):
+            # Verificar si el estudiante ya existe
+            self.cursor.execute(f"SELECT * FROM Estudiantes WHERE nombre = '{nombre}' AND apellido = '{apellido}'")
+            estudiante_existente = self.cursor.fetchone()
+            if estudiante_existente:
                 print("El estudiante ya existe.")
                 return False
 
@@ -191,7 +154,6 @@ class Estudiantes:
                 print("La edad del estudiante no corresponde a ningún curso conocido.")
                 return False
 
-            # Asignar casa al estudiante
             estudiante = {
                 'atributo_1': atributo_1,
                 'atributo_2': atributo_2,
@@ -203,7 +165,7 @@ class Estudiantes:
                 'atributo_8': atributo_8,
                 'atributo_9': atributo_9
             }
-            
+
             # Obtener las casas de la base de datos
             casas = [
                 hogwarts.consultar_casa(1),
@@ -216,10 +178,8 @@ class Estudiantes:
             if casa_asignada:
                 codigo_casa_asignada = casa_asignada['codigo']
             else:
-                # En caso de no encontrar una casa asignada, puedes manejarlo como desees, por ejemplo, asignar un valor predeterminado
                 codigo_casa_asignada = 0
 
-            # Insertar el estudiante en la base de datos
             sql = f"INSERT INTO Estudiantes \
                    (nombre, apellido, edad, sexo, atributo_1, atributo_2, atributo_3, atributo_4, atributo_5, atributo_6, atributo_7, atributo_8, atributo_9, casa_asignada, curso_asignado) \
                    VALUES \
@@ -233,41 +193,36 @@ class Estudiantes:
             print(f"SQL State: {err.sqlstate}")
             print(f"Mensaje: {err.msg}")
             return False
-        
 
-    def leer_estudiante(self, codigo_identificacion):
-        try:
-            self.cursor.execute(f"SELECT * FROM Estudiantes WHERE codigo_identificacion = {codigo_identificacion}")
-            estudiante = self.cursor.fetchone()
-            if estudiante:
-                return estudiante
-            else:
-                return None
-        except mysql.connector.Error as err:
-            print("Error al leer estudiante:")
-            print(f"Error code: {err.errno}")
-            print(f"SQL State: {err.sqlstate}")
-            print(f"Mensaje: {err.msg}")
+    def asignar_casa(self, estudiante, casas):
+        if estudiante is None:
             return None
 
-    def actualizar_casa_estudiante(self, codigo_identificacion, casa_asignada):
-        try:
-            # Modificar para obtener el nombre de la casa a partir del código
-            nombre_casa = hogwarts.consultar_casa(casa_asignada)['casa']
-            sql = f"UPDATE Estudiantes SET casa_asignada = '{nombre_casa}' WHERE codigo_identificacion = {codigo_identificacion}"
-            self.cursor.execute(sql)
-            self.conn.commit()
-            return True
-        except mysql.connector.Error as err:
-            print("Error al actualizar la casa asignada del estudiante:")
-            print(f"Error code: {err.errno}")
-            print(f"SQL State: {err.sqlstate}")
-            print(f"Mensaje: {err.msg}")
-            return False
-    
+        mejor_casa = None
+        menor_distancia = float('inf')
+
+        for casa in casas:
+            distancia = self.calcular_distancia_atributos(estudiante, casa)
+            if distancia < menor_distancia:
+                menor_distancia = distancia
+                mejor_casa = casa
+
+        return mejor_casa
+
+    def calcular_distancia_atributos(self, estudiante, casa):
+        suma_cuadrados = 0.0
+
+        for atributo in estudiante:
+            if atributo.startswith('atributo'):
+                diferencia = estudiante[atributo] != casa[atributo]
+                suma_cuadrados += diferencia ** 2
+
+        distancia = math.sqrt(suma_cuadrados)
+        return distancia
+
     def asignar_curso(self, edad):
         if 10 <= edad <= 14:
-                return 1
+            return 1
         elif 15 <= edad <= 17:
             return 2
         elif 18 <= edad <= 20:
@@ -279,41 +234,17 @@ class Estudiantes:
         elif 26 <= edad <= 29:
             return 6
         else:
-                return 7  # Para estudiantes mayores de 29 años
+            return 7  # Para estudiantes mayores de 29 años
 
-
-    def eliminar_estudiante(self, codigo_identificacion):
-        try:
-            self.cursor.execute(f"DELETE FROM Estudiantes WHERE codigo_identificacion = {codigo_identificacion}")
-            self.conn.commit()
-            return True
-        except mysql.connector.Error as err:
-            print("Error al eliminar estudiante:")
-            print(f"Error code: {err.errno}")
-            print(f"SQL State: {err.sqlstate}")
-            print(f"Mensaje: {err.msg}")
-            return False
-        
-    def asignar_casa(self, estudiante, casas):
-            if estudiante is None:
-                return None
-
-            max_coincidencias = 0
-            casa_asignada = None
-
-            for casa in casas:
-                coincidencias = sum(estudiante[atributo] == casa[atributo] for atributo in estudiante if atributo.startswith('atributo'))
-
-                if coincidencias > max_coincidencias:
-                    max_coincidencias = coincidencias
-                    casa_asignada = casa
-
-            return casa_asignada
-
-
-
-        # Crear instancia de la clase Estudiantes
+# Crear instancias de las clases
+hogwarts = Casas(host='localhost', user='root', password='', database='mi base de datos HP')
 estudiantes_hogwarts = Estudiantes(host='localhost', user='root', password='', database='mi base de datos HP')
+
+# Agregar casas
+hogwarts.crear_casa(1, 'Gryffindor', 'Valentia', 'Audacia', 'Lealtad', 'Cortecia', 'Amabilidad', 'Dignidad', 'Valía', 'Valentía', 'Heroismo')
+hogwarts.crear_casa(2, 'Slytherin', 'Ambicion', 'Astucia', 'Envidia', 'Perversión', 'Perspicacia', 'Ingenio', 'Astucia', 'Persuasión', 'Sagacidad')
+hogwarts.crear_casa(3, 'Hufflepuff', 'Honor', 'Dedicación', 'Amistad', 'Justicia', 'Trabajo', 'Honestidad', 'Empatía', 'Paciencia', 'Benevolencia')
+hogwarts.crear_casa(4, 'Ravenclaw', 'Inteligencia', 'Curiosidad', 'Creatividad', 'Sabiduria', 'Imaginación', 'Análisis', 'Sabiduría', 'Lógica', 'Erudición')
 
 # Crear estudiantes
 estudiantes_hogwarts.crear_estudiante(
@@ -324,63 +255,11 @@ estudiantes_hogwarts.crear_estudiante(
 )
 estudiantes_hogwarts.crear_estudiante(
     'Matu', 'Salem', 35, 'M', 'Ambicion', 'Astucia', 'Creatividad', 'Sabiduria', 'Imaginación', 'Análisis', 'Sabiduría', 'Logica', 'Benevolencia', 
-    )
-
+)
 estudiantes_hogwarts.crear_estudiante(
     'Mago', 'Lo', 20, 'M', 'Honor', 'Dedicación', 'Amistad', 'Justicia', 'Trabajo', 'Honestidad', 'Empatía', 'Logica', 'Benevolencia', 
-    )
+)
 
-    
-
-
-
-# Obtener los estudiantes de la base de datos
-estudiantes = []
-codigo_estudiante = 1
-while True:
-    estudiante = estudiantes_hogwarts.leer_estudiante(codigo_estudiante)
-    if estudiante is not None:
-        estudiantes.append(estudiante)
-        codigo_estudiante += 1
-    else:
-        break
-
-# Mostrar los datos de los estudiantes
-for estudiante in estudiantes:
-    print("-" * 30)
-    print(f"Nombre: {estudiante['nombre']}")
-    print(f"Apellido: {estudiante['apellido']}")
-    print(f"Edad: {estudiante['edad']}")
-    print(f"Sexo: {estudiante['sexo']}")
-    print(f"Casa asignada: {estudiante['casa_asignada']}")
-    print(f"Curso: {estudiante['curso_asignado']}º Año")
-    print("-" * 30)
-
-# Obtener las casas de la base de datos
-casas = [
-    hogwarts.consultar_casa(1),
-    hogwarts.consultar_casa(2),
-    hogwarts.consultar_casa(3),
-    hogwarts.consultar_casa(4)
-]
-
-# Asignar casas a los estudiantes
-for estudiante in estudiantes:
-    if estudiante is not None:
-        codigo_casa = estudiante['casa_asignada']
-        nombre_casa = hogwarts.consultar_casa(codigo_casa)['casa']
-        print(f"{estudiante['nombre']} {estudiante['apellido']} - Casa asignada: {nombre_casa}")
-    else:
-        print("Estudiante no encontrado.")
-
-# Obtener los estudiantes de la base de datos
-"""estudiantes = [
-    estudiantes_hogwarts.leer_estudiante(1),
-    estudiantes_hogwarts.leer_estudiante(2),
-    estudiantes_hogwarts.leer_estudiante(3)
-]"""
-
-
-
-    
-     
+# Listar casas y estudiantes
+hogwarts.listar_casas()
+estudiantes_hogwarts.listar_estudiantes()
